@@ -30,7 +30,7 @@ router.get("/content", (req, res) => {
     const match = {};
     if (latestId)
       match._id = {
-        $gte: latestId
+        $gt: latestId
       };
     const articles = await Article.model
       .find(match)
