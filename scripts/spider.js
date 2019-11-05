@@ -29,11 +29,15 @@ switch (process.argv[2]) {
 }
 
 async function getArticleBG() {
-  const remainingCount = await RedisService.getRemainingIDCount();
-
   const numberPerTime = 5;
 
-  while (remainingCount >= numberPerTime) {
+  while (true) {
+    const remainingCount = await RedisService.getRemainingIDCount();
+
+    if (remainingCount < numberPerTime) {
+      break;
+    }
+
     await Spider.spideringArticles(numberPerTime)
       .then(r => {
         console.log(r);

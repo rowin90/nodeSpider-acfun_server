@@ -1,7 +1,7 @@
 const db = require("./mongoose_service");
 const axios = require("axios");
 const cheerio = require("cheerio");
-const RedisService = require("./redis_service");
+const RedisService = require("./content_id_service");
 // todo
 // const jieba = require("nodejieba");
 
@@ -91,7 +91,7 @@ async function getSingleArticle(id) {
   // 分类
   const tags = [];
 
-  /* const titleTags = jieba.extract(title, 5);
+  /*  const titleTags = jieba.extract(title, 5);
   for (const t of titleTags) {
     tags.push(new Tag("ARTICLE_TAG_TITLE", t.word, t.weight));
   } */
@@ -157,7 +157,7 @@ async function getSingleArticle(id) {
     },
     {
       upsert: true,
-      returnNewDocument: true
+      new: true
     }
   );
 }

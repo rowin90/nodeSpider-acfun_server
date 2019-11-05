@@ -5,7 +5,12 @@ const mongoSetting = require("../setting").mongo;
 mongoose.Promise = Promise;
 
 const uri = mongoSetting.uri;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
 
 const db = mongoose.connection;
 

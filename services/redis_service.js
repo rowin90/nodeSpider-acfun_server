@@ -1,7 +1,9 @@
+const RedisSetting = require("../setting").redis;
+
 var Redis = require("ioredis");
 var client = new Redis({
-  host: "127.0.0.1",
-  port: 6379
+  host: RedisSetting.host,
+  port: RedisSetting.port
 });
 
 module.exports = client;

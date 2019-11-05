@@ -3,11 +3,10 @@ const { Schema } = mongoose;
 
 const articleSchema = new Schema({
   acfunId: String,
-  content: String,
+  content: Array,
   originalContent: String,
   createdAt: { type: Number, default: Date.now().valueOf() },
-  originCreatedAt: Number,
-  originalContent: String,
+  originCreatedAt: String,
   title: String,
   tags: [
     {
@@ -15,7 +14,10 @@ const articleSchema = new Schema({
       value: String,
       score: Number
     }
-  ]
+  ],
+  coverImage: String,
+  description: String,
+  commentCount: String
 });
 
 const articleModel = mongoose.model("article", articleSchema);
