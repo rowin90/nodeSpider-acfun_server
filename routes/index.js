@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Article = require("../models/article");
+const apiRes = require("../utils/api_response");
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -57,7 +58,8 @@ router.get("/content", (req, res) => {
     };
   })()
     .then(r => {
-      res.json(r);
+      res.data = r;
+      apiRes(req, res);
     })
     .catch(e => {
       res.json(e);
