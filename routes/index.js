@@ -17,7 +17,7 @@ router.get("/spiderProtocol", (req, res) => {
     },
     config: {
       contentList: {
-        url: "https://localhost:3000/content",
+        url: "https://106.12.12.89:3000/content",
         pageSizeLimit: 20,
         frequencyLimit: 5
       }
