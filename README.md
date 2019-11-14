@@ -15,6 +15,7 @@ $ script/spider.js
 - 执行  node script/spider.js start_single_articles 1140000
 
 > 如果是 pm2 管理进程，pm2 加参数需要 --
+
 > 如 pm2 start script/spider.js -- generate_ids 1140 1155
 
 # redis 
